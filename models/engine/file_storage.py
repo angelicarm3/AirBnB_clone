@@ -3,7 +3,6 @@
 Comments
 """
 import json
-import os
 
 
 class FileStorage:
@@ -34,14 +33,11 @@ class FileStorage:
 
     def reload(self):
         """Deserializes the JSON file to __objects (only if the JSON file exists)"""
-        if os.path.exists(self.__file_path):
-            try:
-                with open(self.__file_path, mode="r", encoding="utf-8") as file:
-                    temp_objects = json.load(file)
-                    for key, value in temp_objects.items():
-                        instance = eval(value["__class__"])(**value)
-                        self.__objects[key] = instance
-            except Exception as e:
-                print("{}".format(e))
-        else:
-            return
+        from models.base_model import BaseModel
+        try:
+            with open(self.__file_path, mode="r", encoding="utf-8") as file:
+                temp_objects = json.load(file)
+            for key, value in temp_objects.items():
+                self.__objects[key] = eval(value["__class__"])(**value)
+        except FileNotFoundError:
+            pass
