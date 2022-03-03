@@ -6,8 +6,8 @@ of the command interpreter
 
 import cmd
 from models import storage
-from models.base_model import BaseModel
 from models.amenity import Amenity
+from models.base_model import BaseModel
 from models.city import City
 from models.place import Place
 from models.review import Review
@@ -22,8 +22,13 @@ class HBNBCommand(cmd.Cmd):
     """
 
     prompt = "(hbnb) "
-    classes_dict = {"BaseModel": BaseModel, "User": User, "Amenity": Amenity, "City": City,
-                    "Place": Place, "Review": Review, "State": State}
+    classes_dict = {"BaseModel": BaseModel,
+                    "User": User,
+                    "Amenity": Amenity,
+                    "City": City,
+                    "Place": Place,
+                    "Review": Review,
+                    "State": State}
 
     def do_quit(self, line):
         """
@@ -109,7 +114,7 @@ class HBNBCommand(cmd.Cmd):
     def do_all(self, line):
         """
         Prints all string representation of all instances
-        based or not on the class name. 
+        based or not on the class name.
         Ex: $ all BaseModel or $ all
         """
         args = parse(line)
