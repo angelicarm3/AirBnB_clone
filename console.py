@@ -1,5 +1,8 @@
 #!/usr/bin/python3
-""" AirBnb CLI - contains the entry point of the command interpreter """
+"""
+AirBnb Clone Project CLI module - contains the entry point
+of the command interpreter
+"""
 
 import cmd
 from models import storage
@@ -14,7 +17,8 @@ from models.user import User
 
 class HBNBCommand(cmd.Cmd):
     """
-    AirBnb CLI
+    Class defining the command interpreter for the
+    AirBnb Clone project
     """
 
     prompt = "(hbnb) "
@@ -36,7 +40,8 @@ class HBNBCommand(cmd.Cmd):
 
     def emptyline(self):
         """
-        Doesn't do anything on emptyline + Enter
+        Overwrites behaviour of emptyline + Enter
+        - doesn't do anything
         """
         pass
 
