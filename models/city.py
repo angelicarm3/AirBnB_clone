@@ -1,14 +1,13 @@
 #!/usr/bin/python3
 """
-Class City that inherits from BaseModel
+Module for class: City
 """
-
 from models.base_model import BaseModel
 
 
 class City(BaseModel):
     """
-    Com
+    Class City that inherits from BaseModel
     """
 
     name = ""

@@ -1,13 +1,13 @@
 #!/usr/bin/python3
 """
-Class Review that inherits from BaseModel
+Module for class: Review
 """
 from models.base_model import BaseModel
 
 
 class Review(BaseModel):
     """
-    Com
+    Class Review that inherits from BaseModel
     """
 
     place_id = ""

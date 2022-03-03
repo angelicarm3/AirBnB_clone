@@ -1,14 +1,13 @@
 #!/usr/bin/python3
 """
-Class Place that inherits from BaseModel
+Module for class: Place
 """
-
 from models.base_model import BaseModel
 
 
 class Place(BaseModel):
     """
-    Com
+    Class Place that inherits from BaseModel
     """
 
     city_id = ""

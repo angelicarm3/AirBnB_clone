@@ -1,13 +1,13 @@
 #!/usr/bin/python3
 """
-Comments
+Module for class: State
 """
 from models.base_model import BaseModel
 
 
 class State(BaseModel):
     """
-    Comments
+    Class State that inherits from BaseModel
     """
 
     name = ""

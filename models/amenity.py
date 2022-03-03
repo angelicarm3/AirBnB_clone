@@ -1,14 +1,13 @@
 #!/usr/bin/python3
 """
-Class Amenity that inherits from BaseModel
+Module for the class Amenity
 """
-
 from models.base_model import BaseModel
 
 
 class Amenity(BaseModel):
     """
-    Com
+    Class Amenity that inherits from BaseModel
     """
 
     name = ""
