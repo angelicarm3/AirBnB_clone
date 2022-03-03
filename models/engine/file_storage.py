@@ -1,10 +1,10 @@
 #!/usr/bin/python3
 """
-Comments
+Module for class: FileStorage
 """
 import json
-from models.base_model import BaseModel
 from models.amenity import Amenity
+from models.base_model import BaseModel
 from models.city import City
 from models.place import Place
 from models.review import Review
@@ -14,12 +14,18 @@ from models.user import User
 
 class FileStorage:
     """
-    Comments
+    Class that handles the storage of json strings
     """
+
     __file_path = "file.json"
     __objects = {}
-    classes_dict = {"BaseModel": BaseModel, "User": User, "Amenity": Amenity, "City": City,
-                    "Place": Place, "Review": Review, "State": State}
+    classes_dict = {"BaseModel": BaseModel,
+                    "User": User,
+                    "Amenity": Amenity,
+                    "City": City,
+                    "Place": Place,
+                    "Review": Review,
+                    "State": State}
 
     def all(self):
         """Returns the dictionary __objects"""
@@ -41,12 +47,16 @@ class FileStorage:
             json.dump(dictionary, file)
 
     def reload(self):
-        """Deserializes the JSON file to __objects (only if the JSON file exists)"""
+        """
+        Deserializes the JSON file to __objects
+        (only if the JSON file exists)
+        """
 
         try:
             with open(self.__file_path, mode="r", encoding="utf-8") as file:
                 temp_objects = json.load(file)
             for key, value in temp_objects.items():
-                self.__objects[key] = self.classes_dict[value['__class__']](**value)
+                self.__objects[key] = self.classes_dict[value //
+                                                        ['__class__']](**value)
         except FileNotFoundError:
             pass
