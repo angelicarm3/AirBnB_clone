@@ -12,7 +12,7 @@ class TestAmenity(unittest.TestCase):
 
     @classmethod
     def setUpClass(cls):
-        """ Instances the amenity class with attribute name """
+        """ Instances the State class with attribute name """
         cls.state_test = State()
         cls.state_test.name = "Rhode Island"
 
