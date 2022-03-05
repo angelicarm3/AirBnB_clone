@@ -6,6 +6,7 @@ Module to test the BaseModel class
 import pep8
 import os
 import unittest
+from datetime import datetime
 from models import base_model
 from models.base_model import BaseModel
 
@@ -69,6 +70,8 @@ class TestBaseModel(unittest.TestCase):
         """
         self.base_model_test.save()
         self.assertNotEqual(self.base_model_test.created_at, self.base_model_test.updated_at)
+        self.assertIsInstance(self.base_model_test.created_at, datetime)
+        self.assertIsInstance(self.base_model_test.updated_at, datetime)
 
     def test_to_dict(self):
         """ Test to_dict method inherited from BaseModel """
