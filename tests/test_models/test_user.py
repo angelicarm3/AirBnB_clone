@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-Test cases for the User class
+Module for test cases for the User class
 """
 
 from models.base_model import BaseModel
@@ -16,12 +16,12 @@ import models
 
 class TestUser(unittest.TestCase):
     """
-        unitesst for user class
+    Unittest class for testing the User class
     """
 
-    def issub_class(self):
+    def is_subclass(self):
         """
-            test if User class is sub class of base model
+        Tests if User class is subclass of base model
         """
         user = User()
         self.assertIsInstance(user, BaseModel)
@@ -31,7 +31,7 @@ class TestUser(unittest.TestCase):
 
     def test_email(self):
         """
-            test class attribute email
+        Tests class attribute email
         """
         user = User()
         self.assertTrue(hasattr(user, "email"))
@@ -39,7 +39,7 @@ class TestUser(unittest.TestCase):
 
     def test_password(self):
         """
-            test class attribute password
+        Tests class attribute password
         """
         user = User()
         self.assertTrue(hasattr(user, "password"))
@@ -47,7 +47,7 @@ class TestUser(unittest.TestCase):
 
     def test_name(self):
         """
-            test class atribute first_name and last_name
+        Tests class attribute first_name and last_name
         """
         user = User()
         self.assertTrue(hasattr(user, "first_name"))
@@ -57,8 +57,8 @@ class TestUser(unittest.TestCase):
 
     def test_to_dictUser(self):
         """
-            test to dict method with user and the type
-            and content
+        Tests to dict method with user and the type
+        and content
         """
         user = User()
         dict_cont = user.to_dict()
@@ -69,7 +69,7 @@ class TestUser(unittest.TestCase):
 
     def test_dict_value(self):
         """
-            test the returned dictionar values
+        Tests the returned dictionary values
         """
         time_format = "%Y-%m-%dT%H:%M:%S.%f"
         user = User()

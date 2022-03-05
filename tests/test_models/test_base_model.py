@@ -1,4 +1,7 @@
 #!/usr/bin/python3
+"""
+Module to test the BaseModel class
+"""
 
 import pep8
 import os
@@ -7,7 +10,10 @@ from models import base_model
 from models.base_model import BaseModel
 
 
-class TestAmenity(unittest.TestCase):
+class TestBaseModel(unittest.TestCase):
+    """
+    Unittest class for testing the BaseModel class
+    """
 
     @classmethod
     def setUpClass(cls):

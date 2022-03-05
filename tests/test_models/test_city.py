@@ -1,5 +1,7 @@
 #!/usr/bin/python3
-
+"""
+Module for test cases for the City class
+"""
 import pep8
 import os
 import unittest
@@ -8,7 +10,10 @@ from models.base_model import BaseModel
 from models.city import City
 
 
-class TestAmenity(unittest.TestCase):
+class TestCity(unittest.TestCase):
+    """
+    Unittest class for testing the City class
+    """
 
     @classmethod
     def setUpClass(cls):

@@ -1,4 +1,7 @@
 #!/usr/bin/python3
+"""
+Module for test cases for the State class
+"""
 
 import pep8
 import os
@@ -8,7 +11,10 @@ from models.base_model import BaseModel
 from models.state import State
 
 
-class TestAmenity(unittest.TestCase):
+class TestState(unittest.TestCase):
+    """
+    Unittest class for testing the State class
+    """
 
     @classmethod
     def setUpClass(cls):

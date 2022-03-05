@@ -1,5 +1,7 @@
 #!/usr/bin/python3
-
+"""
+Module for test cases for the Review class
+"""
 import pep8
 import os
 import unittest
@@ -8,7 +10,10 @@ from models.base_model import BaseModel
 from models.review import Review
 
 
-class TestAmenity(unittest.TestCase):
+class TestReview(unittest.TestCase):
+    """
+    Unittest class for testing the Review class
+    """
 
     @classmethod
     def setUpClass(cls):
