@@ -10,7 +10,7 @@ from models.base_model import BaseModel
 
 class TestFileStorage(unittest.TestCase):
     """
-        Testing FileStorage class
+    Testing FileStorage class
     """
 
     def setUp(self):
@@ -91,19 +91,18 @@ class TestFileStorage(unittest.TestCase):
         with open(self.file_path, 'w', encoding='utf8') as file:
             json.dump("{}", file)
 
-
         self.assertEqual(len(instance.all()), 0)
 
         """Testing FileStorage class """
 
-        string = '{"BaseModel.055de01b": {"id": "055de01b", "created_at":'\
-            + '"2021-06-26T21:43:11.896838", "updated_at":'\
-            + '"2021-06-26T21:43:11.896885", "name": "Holberton",'\
-            + '"my_number": 89, "__class__": "BaseModel"},'\
-            + '"BaseModel.4749f227": {"id": "4749f227", "created_at":'\
-            + '"2021-06-26T21:43:29.787034", "updated_at":'\
-            + '"2021-06-26T21:43:29.787079", "name": "Holberton",'\
-            + '"my_number": 89, "__class__": "BaseModel"}}'
+        string = '{"BaseModel.055de01b": {"id": "055de01b", "created_at":' \
+                 + '"2021-06-26T21:43:11.896838", "updated_at":' \
+                 + '"2021-06-26T21:43:11.896885", "name": "Holberton",' \
+                 + '"my_number": 89, "__class__": "BaseModel"},' \
+                 + '"BaseModel.4749f227": {"id": "4749f227", "created_at":' \
+                 + '"2021-06-26T21:43:29.787034", "updated_at":' \
+                 + '"2021-06-26T21:43:29.787079", "name": "Holberton",' \
+                 + '"my_number": 89, "__class__": "BaseModel"}}'
         key = 'BaseModel.055de01b'
 
         with open(self.file_path, 'w', encoding='utf8') as file:
@@ -115,7 +114,7 @@ class TestFileStorage(unittest.TestCase):
         self.assertEqual(obj.id, "055de01b")
 
         """Testing FileStorage class """
-        if (os.path.exists(self.file_path)):
+        if os.path.exists(self.file_path):
             os.remove(self.file_path)
         setattr(FileStorage, "_FileStorage__objects", {})
 
