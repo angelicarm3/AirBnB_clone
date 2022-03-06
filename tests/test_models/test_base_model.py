@@ -57,6 +57,11 @@ class TestBaseModel(unittest.TestCase):
         self.assertIsNotNone(BaseModel.save.__doc__)
         self.assertIsNotNone(BaseModel.to_dict.__doc__)
 
+    def test_id(self):
+        """ Test if id exists and it's type """
+        self.assertTrue(self.base_model_test.id)
+        self.assertEqual(type(self.base_model_test.id), str)
+
     def test_has_attributes(self):
         """ Test if place_test has certain attributes """
         self.assertTrue(hasattr(BaseModel, "__init__"))
@@ -72,6 +77,12 @@ class TestBaseModel(unittest.TestCase):
         self.assertNotEqual(self.base_model_test.created_at, self.base_model_test.updated_at)
         self.assertIsInstance(self.base_model_test.created_at, datetime)
         self.assertIsInstance(self.base_model_test.updated_at, datetime)
+
+    def test_updated_value_afterSave(self):
+        """ Test that update is saving correct times """
+        updated_pre = self.base_model_test.updated_at
+        self.base_model_test.save()
+        self.assertTrue(self.base_model_test.updated_at > updated_pre)
 
     def test_to_dict(self):
         """ Test to_dict method inherited from BaseModel """
