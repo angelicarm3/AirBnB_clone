@@ -5,16 +5,19 @@ import json
 import os
 import pep8
 import unittest
+from datetime import datetime
 from models.base_model import BaseModel
 from models.engine import file_storage
 from models.engine.file_storage import FileStorage
-from models.review import Review
+from models import storage
 
 
 class TestFileStorage(unittest.TestCase):
     """
     Testing FileStorage class
     """
+    json_file = "file.json"
+    storage = FileStorage()
 
     def setUp(self):
         """Testing FileStorage class """
@@ -23,11 +26,6 @@ class TestFileStorage(unittest.TestCase):
     def tearDown(self):
         """Testing FileStorage class """
         setattr(FileStorage, "_FileStorage__objects", {})
-
-        try:
-            os.remove("file.json")
-        except:
-            pass
 
     def test_style_check(self):
         """ Tests pep8 style """
@@ -47,6 +45,27 @@ class TestFileStorage(unittest.TestCase):
         self.assertIsNotNone(FileStorage.new.__doc__)
         self.assertIsNotNone(FileStorage.save.__doc__)
         self.assertIsNotNone(FileStorage.reload.__doc__)
+
+    def test_instance_type(self):
+        """ Test instance type """
+        self.assertEqual(type(self.storage.all()), dict)
+
+    def test_type_id(self):
+        """ Test id type """
+        my_model = BaseModel()
+        self.assertEqual(type(my_model.id), str)
+
+    def test_type_created_at(self):
+        """ Test types of attributes """
+        my_model = BaseModel()
+        self.assertEqual(type(my_model.created_at), datetime)
+        self.assertEqual(type(my_model.to_dict()['created_at']), str)
+
+    def test_type_updated_at(self):
+        """ Test types of attributes """
+        my_model = BaseModel()
+        self.assertEqual(type(my_model.updated_at), datetime)
+        self.assertEqual(type(my_model.to_dict()['updated_at']), str)
 
     def test_function_all(self):
         """Testing FileStorage class """
