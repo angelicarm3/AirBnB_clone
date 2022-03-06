@@ -2,10 +2,13 @@
 """Testing FileStorage class """
 
 import json
-import unittest
 import os
-from models.engine.file_storage import FileStorage
+import pep8
+import unittest
 from models.base_model import BaseModel
+from models.engine import file_storage
+from models.engine.file_storage import FileStorage
+from models.review import Review
 
 
 class TestFileStorage(unittest.TestCase):
@@ -20,6 +23,30 @@ class TestFileStorage(unittest.TestCase):
     def tearDown(self):
         """Testing FileStorage class """
         setattr(FileStorage, "_FileStorage__objects", {})
+
+        try:
+            os.remove("file.json")
+        except:
+            pass
+
+    def test_style_check(self):
+        """ Tests pep8 style """
+        pep8style = pep8.StyleGuide(quiet=True)
+        results = pep8style.check_files(['models/engine/file_storage.py'])
+        self.assertEqual(results.total_errors, 0,
+                         "Found code style errors (and warnings).")
+
+    def test_module_documentation(self):
+        """ Test if file_storage module is documented """
+        self.assertTrue(file_storage.__doc__)
+
+    def test_documentation_methods(self):
+        """ Test if methods have comments"""
+        self.assertIsNotNone(FileStorage.__doc__)
+        self.assertIsNotNone(FileStorage.all.__doc__)
+        self.assertIsNotNone(FileStorage.new.__doc__)
+        self.assertIsNotNone(FileStorage.save.__doc__)
+        self.assertIsNotNone(FileStorage.reload.__doc__)
 
     def test_function_all(self):
         """Testing FileStorage class """
