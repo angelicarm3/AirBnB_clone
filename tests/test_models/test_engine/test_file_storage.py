@@ -6,9 +6,14 @@ import os
 import pep8
 import unittest
 from datetime import datetime
+from models.amenity import Amenity
 from models.base_model import BaseModel
+from models.city import City
 from models.engine import file_storage
 from models.engine.file_storage import FileStorage
+from models.place import Place
+from models.review import Review
+from models.state import State
 from models.user import User
 from models import storage
 
@@ -18,6 +23,13 @@ class TestFileStorage(unittest.TestCase):
     Testing FileStorage class
     """
     storage = FileStorage()
+    classes_dict = {"BaseModel": BaseModel,
+                    "User": User,
+                    "Amenity": Amenity,
+                    "City": City,
+                    "Place": Place,
+                    "Review": Review,
+                    "State": State}
 
     def setUp(self):
         """Testing FileStorage class """
@@ -113,6 +125,33 @@ class TestFileStorage(unittest.TestCase):
             for line in r:
                 self.assertEqual(line, "{}")
         self.assertIs(test_storage.reload(), None)
+
+    def test_save(self):
+        """ Test save method """
+        my_model = BaseModel()
+        prev = my_model.updated_at
+        my_model.save()
+        self.assertTrue(my_model.updated_at > prev)
+
+    def test_save_serialization(self):
+        """ Tests serialization of method save """
+        os.remove("file.json")
+        test_storage = FileStorage()
+        test_dictionary = {}
+        for key, value in self.classes_dict.items():
+            instance = value()
+            instance_key = instance.__class__.__name__ + "." + instance.id
+            test_dictionary[instance_key] = instance
+        save = FileStorage._FileStorage__objects
+        FileStorage._FileStorage__objects = test_dictionary
+        test_storage.save()
+        FileStorage._FileStorage__objects = save
+        for key, value in test_dictionary.items():
+            test_dictionary[key] = value.to_dict()
+        string = json.dumps(test_dictionary)
+        with open("file.json", "r") as f:
+            js = f.read()
+        self.assertEqual(json.loads(string), json.loads(js))
 
 
 if __name__ == "__main__":
