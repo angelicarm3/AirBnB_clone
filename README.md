@@ -1,4 +1,4 @@
-
+![AirBnB Clone project logo for Holberton School](logo.png "Holberton logo for AirBnb Clone project")
 # 0x00. AirBnB clone - The console
 
 The AirBnB project approaches the first real web developer project, the console is the 
@@ -98,3 +98,4 @@ Available modules with their corresponding class:
 [Angelica Rodriguez](https://github.com/angelicarm3)
 
 [Ornella Russo](https://github.com/Ella711)
+
