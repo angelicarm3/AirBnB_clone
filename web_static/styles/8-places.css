@@ -1,29 +1,33 @@
 .places {
     display: flex;
-    flex-wrap: wrap;
+    flex-flow: wrap;
     justify-content: center;
-    text-align: center;
+/*    align-items: baseline;*/
 }
 
 .places h1 {
     width: 100%;
     font-size: 30px;
     text-align: left;
+    padding-left: 15px;
+    margin: 30px auto 0 auto;
 }
 
 .places article {
+    display: flex;
     width: 390px;
     padding: 20px;
     margin: 20px;
     border: 1px solid #FF5A5F;
     border-radius: 4px;
-    flex: none;
+    flex-flow: wrap;
     text-align: center;
 }
 
 .places h2 {
+    width: 300px;
     font-size: 30px;
-    text-align: center;
+    margin: auto;
 }
 
 .places .price_by_night {
@@ -36,47 +40,55 @@
     font-size: 30px;
     align-items: center;
     justify-content: center;
-   
-    top: 0.75em;
-    rigth: 1.5em;
+    float: right;
+    padding: 5px;
 }
 
 .places .information {
-
+    display: flex;
     height: 80px;
     width: 100%;
     border-top: 1px solid #DDDDDD;
     border-bottom: 1px solid #DDDDDD;
+    align-items: flex-end;
+    justify-content: center;
+    margin: 10px 5px 20px 5px;
 }
 
 .places .max_guest {
+    display: flex;
     background-image: url(../images/icon_group.png);
     background-repeat: no-repeat;
     background-position: center top;
-    display: inline-block;
     width: 100px;
-    text-align: center;
+    height: 95%;
+    justify-content: center;
+    align-items: flex-end;
 }
 
 .places .number_bedrooms {
+    display: flex;
     background-image: url(../images/icon_bed.png);
     background-repeat: no-repeat;
     background-position: center top;
-    display: inline-block;
     width: 100px;
-    text-align: center;
+    height: 95%;
+    justify-content: center;
+    align-items: flex-end;
 }
 
 .places .number_bathrooms {
+    display: flex;
     background-image: url(../images/icon_bath.png);
     background-repeat: no-repeat;
     background-position: center top;
-    display: inline-block;
     width: 100px;
-    text-align: center;
+    height: 95%;
+    justify-content: center;
+    align-items: flex-end;
 }
 
-.user, .description {
+.description {
     text-align: left;
-    padding: 10px;
+    margin: 10px auto 10px auto;
 }
